@@ -124,11 +124,15 @@ const useStyles = makeStyles({
     },
     imgBg1: {
       width: '100%',
-      height: '100%',
+      // height: '100%',
+      height: '100vh',
       objectFit: 'fill',
       zIndex: 0,
       position: 'relative',
       [theme.breakpoints.down('md')]: {
+        height: '100vh'
+      },
+      [theme.breakpoints.down('lg')]: {
         height: '100vh'
       }
     },
@@ -148,10 +152,15 @@ const useStyles = makeStyles({
       display: 'block',
       bottom: 0,
       right: 0,
+      [theme.breakpoints.down('lg')]: {
+        height: '60%',
+        width: '90%'
+      },
       [theme.breakpoints.down('md')]: {
         height: '45%',
         width: '80%'
-      }
+      },
+      
     },
     bush: {
       position: 'absolute',
@@ -175,10 +184,18 @@ const useStyles = makeStyles({
       zIndex: 5,
       width: 112,
       height: 207,
+      [theme.breakpoints.down('lg')]: {
+        width: 81,
+        height: 150
+      },
       [theme.breakpoints.down('md')]: {
         width: 41,
         height: 78
-      }
+      },
+      [theme.breakpoints.down(325)]: {
+        width: 31,
+        height: 68
+      },
     },
     content: {
       position: 'absolute',
@@ -242,16 +259,14 @@ const useStyles = makeStyles({
     i: {
       position: 'absolute',
       zIndex: 5,
-      bottom: '20px',
-      marginLeft: 237,
-      marginBottom: 30,
+      marginLeft: '35%',
       [theme.breakpoints.down('md')]: {
-        marginLeft: '45%',
-        marginBottom: 0,
-        bottom: 0,
+        marginBottom: '10%',
+        marginLeft: '45%'
       },
       [theme.breakpoints.down(350)]: {
-        marginLeft: '35%',
+        marginBottom: '5%',
+        marginLeft: '45%'
       },
     },
     iActivities: {
@@ -265,10 +280,15 @@ const useStyles = makeStyles({
       width: 112,
       height: 207,
       animation: `${shrink} 2s linear 1 forwards`,
+      [theme.breakpoints.down('lg')]: {
+        width: 81,
+        height: 150
+      },
       [theme.breakpoints.down('md')]: {
         width: 41,
         height: 78
-      }
+      },
+      
     },
     ContentWave: {
       position: 'absolute',
@@ -282,15 +302,19 @@ const useStyles = makeStyles({
       position: 'absolute',
       width: 100,
       height: 100,
-      bottom: '5%',
+      bottom: '10%',
       left: '40%',
       borderRadius: '8px',
       clipPath: 'polygon(7% 100%, 5% 95%, 3% 80%, 11% 50%, 17% 38%, 23% 44%, 30% 53%, 37% 28%, 40% 29%, 45% 43%, 51% 53%, 59% 36%, 64% 22%, 67% 23%, 70% 34%, 72% 46%, 79% 37%, 83% 37%, 93% 61%, 96% 76%, 96% 94%, 94% 100%)',
       backgroundColor: 'white',
       transformOrigin: 'bottom',
       animation: `${splashAnimation} 2s infinite ease-out`,
+      [theme.breakpoints.down('lg')]: {
+        left: '35%',
+      },
       [theme.breakpoints.down('md')]: {
         left: '35%',
+        bottom: '5%',
       },
       [theme.breakpoints.down(325)]: {
         width: 50, 
