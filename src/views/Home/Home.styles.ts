@@ -127,7 +127,10 @@ const useStyles = makeStyles({
       height: '100%',
       objectFit: 'fill',
       zIndex: 0,
-      position: 'relative'
+      position: 'relative',
+      [theme.breakpoints.down('md')]: {
+        height: '100vh'
+      }
     },
     contentHands: {
       position: 'absolute',
@@ -145,6 +148,10 @@ const useStyles = makeStyles({
       display: 'block',
       bottom: 0,
       right: 0,
+      [theme.breakpoints.down('md')]: {
+        height: '45%',
+        width: '80%'
+      }
     },
     bush: {
       position: 'absolute',
@@ -168,6 +175,10 @@ const useStyles = makeStyles({
       zIndex: 5,
       width: 112,
       height: 207,
+      [theme.breakpoints.down('md')]: {
+        width: 41,
+        height: 78
+      }
     },
     content: {
       position: 'absolute',
@@ -194,6 +205,14 @@ const useStyles = makeStyles({
         "&:hover": {
           backgroundColor: 'rgba(148, 240, 255, 1)',
          },
+      [theme.breakpoints.down('md')]:{
+        left: '45%'
+      },
+      [theme.breakpoints.down(380)]:{
+        left: '43%',
+        width: '70px',
+        height: '70px',
+      },
     },
     iconFishButton: {
       width: 112 - 70,
@@ -208,7 +227,12 @@ const useStyles = makeStyles({
       letterSpacing: '0.25px',
       textTransform: 'uppercase',
       color: 'rgba(38, 38, 38, 1)',
-      position: 'absolute'
+      position: 'absolute',
+      [theme.breakpoints.down(380)]:{
+        fontSize: '16px',
+        fontWeight: 700,
+        lineHeight: '24px',
+      }
     },
     start: {
       animation: `${x} 2s linear 1 alternate, ${y} 2s 1 cubic-bezier(0, -2000, 1, -200)`
@@ -219,6 +243,18 @@ const useStyles = makeStyles({
       bottom: '20px',
       marginLeft: 237,
       marginBottom: 30,
+      [theme.breakpoints.down('md')]: {
+        marginLeft: 70,
+        marginBottom: 0,
+      },
+      [theme.breakpoints.down(380)]: {
+        marginLeft: 60,
+        marginBottom: 0,
+        bottom: 0,
+      },
+      [theme.breakpoints.down(330)]: {
+        marginLeft: 50,
+      },
     },
     iActivities: {
       position: 'fixed',
@@ -230,7 +266,11 @@ const useStyles = makeStyles({
       zIndex: 5,
       width: 112,
       height: 207,
-      animation: `${shrink} 2s linear 1 forwards`
+      animation: `${shrink} 2s linear 1 forwards`,
+      [theme.breakpoints.down('md')]: {
+        width: 41,
+        height: 78
+      }
     },
     ContentWave: {
       position: 'absolute',

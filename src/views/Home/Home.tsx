@@ -91,7 +91,7 @@ const Home = (props: MenuLeftType) => {
 
   return (
     <Grid container className={cx(classes.root)}>
-      <HeaderMobile />
+      {/* <HeaderMobile /> */}
       <div className={classes.containerBody}>
         <img src="/image/icons/bgNohand.png" alt="" className={classes.imgBg1} />
         <div className={classes.contentHands} >
