@@ -244,16 +244,12 @@ const useStyles = makeStyles({
       marginLeft: 237,
       marginBottom: 30,
       [theme.breakpoints.down('md')]: {
-        marginLeft: 70,
-        marginBottom: 0,
-      },
-      [theme.breakpoints.down(380)]: {
-        marginLeft: 60,
+        marginLeft: '45%',
         marginBottom: 0,
         bottom: 0,
       },
-      [theme.breakpoints.down(330)]: {
-        marginLeft: 50,
+      [theme.breakpoints.down(350)]: {
+        marginLeft: '35%',
       },
     },
     iActivities: {
