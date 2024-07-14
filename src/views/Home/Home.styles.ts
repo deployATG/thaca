@@ -206,7 +206,9 @@ const useStyles = makeStyles({
           backgroundColor: 'rgba(148, 240, 255, 1)',
          },
       [theme.breakpoints.down('md')]:{
-        left: '45%'
+        left: '45%',
+        width: '80px',
+        height: '80px',
       },
       [theme.breakpoints.down(380)]:{
         left: '43%',
@@ -287,6 +289,14 @@ const useStyles = makeStyles({
       backgroundColor: 'white',
       transformOrigin: 'bottom',
       animation: `${splashAnimation} 2s infinite ease-out`,
+      [theme.breakpoints.down('md')]: {
+        left: '35%',
+      },
+      [theme.breakpoints.down(325)]: {
+        width: 50, 
+          height: 50,
+      },
+      
     },
     particles: {
       position: 'absolute',
@@ -339,7 +349,24 @@ const useStyles = makeStyles({
         animation: `${spread} 2s infinite ease-out`,
         [theme.breakpoints.up(1800)]: {
           left: '34.5%'
-        }
+        },
+        [theme.breakpoints.down('md')]: {
+          width: 200, 
+          height: 100,
+          bottom: '-2%',
+          left: '27%',
+        },
+        [theme.breakpoints.down(500)]: {
+          left: '25%',
+        },
+        [theme.breakpoints.down(400)]: {
+          left: '23%',
+        },
+        [theme.breakpoints.down(325)]: {
+          width: 150, 
+          height: 75,
+          left: '20%',
+        },
       },
       '& > div:nth-of-type(2)': {
         animationDelay: 'calc(var(--delay) + 0.5s)',
