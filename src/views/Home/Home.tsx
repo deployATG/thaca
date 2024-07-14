@@ -104,7 +104,8 @@ const Home = (props: MenuLeftType) => {
         </div>
         <img src="/image/icons/bush.png" alt="" className={classes.bush} />
         <ShowBling />
-        {isClickAnimationWave && <div className={classes.ContentWave}>
+        {/* {isClickAnimationWave && <div className={classes.ContentWave}> */}
+      {<div className={classes.ContentWave}>
           <div className={classes.splash}></div>
             <div className={classes.wave}>
               <div></div>

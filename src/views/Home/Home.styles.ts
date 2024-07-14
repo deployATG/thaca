@@ -160,7 +160,7 @@ const useStyles = makeStyles({
         height: '45%',
         width: '80%'
       },
-      
+
     },
     bush: {
       position: 'absolute',
@@ -219,15 +219,20 @@ const useStyles = makeStyles({
       height: '100px',
       cursor: 'pointer',
       zIndex: 5,
-        "&:hover": {
-          backgroundColor: 'rgba(148, 240, 255, 1)',
-         },
-      [theme.breakpoints.down('md')]:{
+      "&:hover": {
+        backgroundColor: 'rgba(148, 240, 255, 1)',
+      },
+      [theme.breakpoints.down('md')]: {
+        left: '45%',
+        width: '60px',
+        height: '60px',
+      },
+      [theme.breakpoints.down(700)]: {
         left: '45%',
         width: '80px',
         height: '80px',
       },
-      [theme.breakpoints.down(380)]:{
+      [theme.breakpoints.down(380)]: {
         left: '43%',
         width: '70px',
         height: '70px',
@@ -247,7 +252,12 @@ const useStyles = makeStyles({
       textTransform: 'uppercase',
       color: 'rgba(38, 38, 38, 1)',
       position: 'absolute',
-      [theme.breakpoints.down(380)]:{
+      [theme.breakpoints.down('md')]: {
+        fontSize: '18px',
+        fontWeight: 700,
+        lineHeight: '24px',
+      },
+      [theme.breakpoints.down(380)]: {
         fontSize: '16px',
         fontWeight: 700,
         lineHeight: '24px',
@@ -261,6 +271,9 @@ const useStyles = makeStyles({
       zIndex: 5,
       marginLeft: '35%',
       [theme.breakpoints.down('md')]: {
+        marginLeft: '45%'
+      },
+      [theme.breakpoints.down(600)]: {
         marginBottom: '10%',
         marginLeft: '45%'
       },
@@ -288,7 +301,7 @@ const useStyles = makeStyles({
         width: 41,
         height: 78
       },
-      
+
     },
     ContentWave: {
       position: 'absolute',
@@ -313,14 +326,22 @@ const useStyles = makeStyles({
         left: '35%',
       },
       [theme.breakpoints.down('md')]: {
+        left: '40%',
+        bottom: '5%',
+        width: 80,
+        height: 80,
+      },
+      [theme.breakpoints.down(700)]: {
+        width: 50,
+        height: 50,
         left: '35%',
         bottom: '5%',
       },
       [theme.breakpoints.down(325)]: {
-        width: 50, 
-          height: 50,
+        width: 50,
+        height: 50,
       },
-      
+
     },
     particles: {
       position: 'absolute',
@@ -364,7 +385,7 @@ const useStyles = makeStyles({
     wave: {
       '& > div': {
         position: 'absolute',
-        width: 300, 
+        width: 300,
         height: 200,
         left: '34%',
         bottom: '-6%',
@@ -375,7 +396,13 @@ const useStyles = makeStyles({
           left: '34.5%'
         },
         [theme.breakpoints.down('md')]: {
-          width: 200, 
+          width: 200,
+          height: 100,
+          bottom: '-3%',
+          left: '33%',
+        },
+        [theme.breakpoints.down(700)]: {
+          width: 200,
           height: 100,
           bottom: '-2%',
           left: '27%',
@@ -387,7 +414,7 @@ const useStyles = makeStyles({
           left: '23%',
         },
         [theme.breakpoints.down(325)]: {
-          width: 150, 
+          width: 150,
           height: 75,
           left: '20%',
         },
