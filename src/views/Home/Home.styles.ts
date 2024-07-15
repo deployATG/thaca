@@ -287,6 +287,9 @@ const useStyles = makeStyles({
       zIndex: 5,
       right: '20%',
       bottom: '20px',
+      [theme.breakpoints.down('md')]: {
+        right: '10%'
+      },
     },
     iconFishActivities: {
       zIndex: 5,
@@ -311,31 +314,40 @@ const useStyles = makeStyles({
       justifyContent: 'center',
       alignItems: 'flex-end',
     },
+    content1: {
+      position: 'relative',
+      display: 'flex',
+      width: '20%',
+      height: '20%',
+      right: '5%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
     splash: {
       position: 'absolute',
       width: 100,
       height: 100,
-      bottom: '10%',
-      left: '40%',
+      top: '-10%',
       borderRadius: '8px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       clipPath: 'polygon(7% 100%, 5% 95%, 3% 80%, 11% 50%, 17% 38%, 23% 44%, 30% 53%, 37% 28%, 40% 29%, 45% 43%, 51% 53%, 59% 36%, 64% 22%, 67% 23%, 70% 34%, 72% 46%, 79% 37%, 83% 37%, 93% 61%, 96% 76%, 96% 94%, 94% 100%)',
       backgroundColor: 'white',
       transformOrigin: 'bottom',
       animation: `${splashAnimation} 2s infinite ease-out`,
       [theme.breakpoints.down('lg')]: {
-        left: '35%',
+        // left: '35%',
       },
       [theme.breakpoints.down('md')]: {
-        left: '40%',
-        bottom: '5%',
+        top: '10%',
         width: 80,
         height: 80,
       },
       [theme.breakpoints.down(700)]: {
         width: 50,
         height: 50,
-        left: '35%',
-        bottom: '5%',
       },
       [theme.breakpoints.down(325)]: {
         width: 50,
@@ -345,7 +357,6 @@ const useStyles = makeStyles({
     },
     particles: {
       position: 'absolute',
-      left: '45%',
       '& > div': {
         borderRadius: '100%',
         backgroundColor: 'white',
@@ -353,70 +364,56 @@ const useStyles = makeStyles({
       '& > div:nth-of-type(1)': {
         width: '7px',
         height: '7px',
-        top: '50%',
-        left: '50%',
         animation: `${jumpLeft} 2s infinite ease-out`,
       },
       '& > div:nth-of-type(2)': {
         width: '5px',
         height: '5px',
-        top: '30%',
-        left: '30%',
         animation: `${jumpLeft} 2s infinite ease-out`,
         animationDelay: 'calc(var(--delay) + 0.1s)',
       },
       '& > div:nth-of-type(3)': {
         width: '3px',
         height: '3px',
-        top: '20%',
-        left: '70%',
         animation: `${jumpRight} 2s infinite ease-out`,
         animationDelay: 'calc(var(--delay) + 0.15s)',
       },
       '& > div:nth-of-type(4)': {
         width: '5px',
         height: '5px',
-        top: '30%',
-        left: '50%',
         animation: `${jumpRight} 2s infinite ease-out`,
         animationDelay: 'calc(var(--delay) + 0.3s)',
       }
     },
     wave: {
+      position: 'absolute',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       '& > div': {
         position: 'absolute',
         width: 300,
         height: 200,
-        left: '34%',
-        bottom: '-6%',
         borderRadius: '50%',
         border: 'solid white 3px',
         animation: `${spread} 2s infinite ease-out`,
         [theme.breakpoints.up(1800)]: {
-          left: '34.5%'
         },
         [theme.breakpoints.down('md')]: {
           width: 200,
           height: 100,
-          bottom: '-3%',
-          left: '33%',
         },
         [theme.breakpoints.down(700)]: {
           width: 200,
           height: 100,
-          bottom: '-2%',
-          left: '27%',
         },
         [theme.breakpoints.down(500)]: {
-          left: '25%',
         },
         [theme.breakpoints.down(400)]: {
-          left: '23%',
         },
         [theme.breakpoints.down(325)]: {
           width: 150,
           height: 75,
-          left: '20%',
         },
       },
       '& > div:nth-of-type(2)': {

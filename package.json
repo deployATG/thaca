@@ -22,6 +22,7 @@
     "axios": "^1.6.7",
     "dayjs": "^1.11.10",
     "glamor": "^2.20.40",
+    "howler": "^2.2.4",
     "html2canvas": "^1.4.1",
     "i18next": "^23.10.0",
     "lodash": "^4.17.21",
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
+    "@types/howler": "^2.2.11",
     "@types/lodash": "^4.17.6",
     "@types/node": "^20",
     "@types/react": "^18",

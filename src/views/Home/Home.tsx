@@ -8,6 +8,8 @@ import AppSvgIcon from "@/components/AppSvgIcon"
 import { ReactComponent as iconFish } from '@/assets/icons/fish.svg'
 import AppSvgIconWithRef from "@/components/AppSvgIcon"
 import ShowBling from "../components/ShowBling"
+import { Howl } from 'howler';
+
 
 type MenuLeftType = {
   childrenChild?: React.ReactNode
@@ -23,6 +25,11 @@ const Home = (props: MenuLeftType) => {
   const timeoutRef1 = useRef<NodeJS.Timeout | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [opacityButton, setOpacityButton] = useState(1);
+  const sound = new Howl({
+    src: ['/image/icons/audioWater.mp3'],
+    html5: true,
+    volume: 0.2
+  })
 
   let start: number | undefined;
 
@@ -36,34 +43,36 @@ const Home = (props: MenuLeftType) => {
   };
 
   const handleAnimationEnd = () => {
+    sound.play();
+
     if (elemRef.current) {
       elemRef.current.classList.remove(classes.start)
       setIsClickAnimation(false);
     }
-
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
     timeoutRef.current = setTimeout(() => {
       setIsClickAnimationWave(false)
+      sound.stop();
     }, 1000);
   }
   const handleUpOpacity = () => {
-      setOpacityButton(0);
-      if(intervalRef.current){
-        clearInterval(intervalRef.current)
-      }
-      intervalRef.current =  setInterval(() => {
-        setOpacityButton(prev => {
-          if(prev <1){
-            return prev + 0.1;
-          }
-          else {
-            clearInterval(intervalRef.current!);
-            return 1;
-          }
-        })
-      }, 200)
+    setOpacityButton(0);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current)
+    }
+    intervalRef.current = setInterval(() => {
+      setOpacityButton(prev => {
+        if (prev < 1) {
+          return prev + 0.1;
+        }
+        else {
+          clearInterval(intervalRef.current!);
+          return 1;
+        }
+      })
+    }, 200)
   }
   const handleClick = () => {
     handleUpOpacity()
@@ -78,7 +87,6 @@ const Home = (props: MenuLeftType) => {
       elemRef.current.classList.add(classes.start);
       window.requestAnimationFrame(debug);
       elemRef.current.addEventListener('animationend', handleAnimationEnd)
-      
     } else {
       console.error('elemRef.current is null');
     }
@@ -105,8 +113,9 @@ const Home = (props: MenuLeftType) => {
         <img src="/image/icons/bush.png" alt="" className={classes.bush} />
         <ShowBling />
         {isClickAnimationWave && <div className={classes.ContentWave}>
-      {/* {<div className={classes.ContentWave}> */}
-          <div className={classes.splash}></div>
+        {/* {<div className={classes.ContentWave}> */}
+          <div className={classes.content1}>
+            <div className={classes.splash}></div>
             <div className={classes.wave}>
               <div></div>
               <div></div>
@@ -117,8 +126,9 @@ const Home = (props: MenuLeftType) => {
               <div></div>
               <div></div>
             </div>
+          </div>
         </div>}
-        <Button className={classes.Button} onClick={() => { opacityButton=== 1 && setIsClickAnimation(true) }} style={{opacity: opacityButton}}>
+        <Button className={classes.Button} onClick={() => { opacityButton === 1 && setIsClickAnimation(true) }} style={{ opacity: opacityButton }}>
           <AppSvgIcon component={iconFish} className={classes.iconFishButton} />
           <span className={classes.text}>Thả cá</span>
         </Button>
