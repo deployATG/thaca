@@ -9,6 +9,8 @@ import { ReactComponent as iconFish } from '@/assets/icons/fish.svg'
 import AppSvgIconWithRef from "@/components/AppSvgIcon"
 import ShowBling from "../components/ShowBling"
 import { Howl } from 'howler';
+import { ReactComponent as icLogo } from "@/assets/icons/logoAtgBlack.svg"
+import { gotoPage } from "@/utils/helpers/common"
 
 
 type MenuLeftType = {
@@ -100,6 +102,7 @@ const Home = (props: MenuLeftType) => {
   return (
     <Grid container className={cx(classes.root)}>
       {/* <HeaderMobile /> */}
+      <AppSvgIcon component={icLogo} className={classes.logo} onClick={() => gotoPage('https://www.atg-technology.com/')}/>
       <div className={classes.containerBody}>
         <img src="/image/icons/bgNohand.png" alt="" className={classes.imgBg1} />
         <div className={classes.contentHands} >

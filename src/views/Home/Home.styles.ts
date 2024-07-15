@@ -426,6 +426,15 @@ const useStyles = makeStyles({
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
+    },
+    logo: {
+      position: 'absolute',
+      width: 100,
+      height: 50,
+      top: 0,
+      zIndex: 10,
+      left: '50%',
+      cursor: 'pointer'
     }
   }
 })
