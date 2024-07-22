@@ -30,8 +30,8 @@ const Home = (props: MenuLeftType) => {
   const timeoutRef1 = useRef<NodeJS.Timeout | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const elementReftHands = useRef<HTMLImageElement>(null);
-  const soundMainRef = useRef<Howl>(null);
 
+  let start: number | undefined;
   const sound = new Howl({
     src: ['/image/icons/Water_sound_effect_1.mp3'],
     html5: true,
@@ -43,10 +43,7 @@ const Home = (props: MenuLeftType) => {
     loop: true,
     autoplay: true,
     volume: 0.1,
-    // mute: true,
   })
-
-  let start: number | undefined;
 
   const debug = (timestamp: number) => {
     if (start === undefined) start = timestamp;
@@ -58,8 +55,9 @@ const Home = (props: MenuLeftType) => {
   };
 
   const handleAnimationEnd = () => {
+    
     sound.play();
-
+    sound.volume(0.1)
     if (elementReftHands.current) {
       elementReftHands.current.classList.remove('animate__backOutDown')
       elementReftHands.current?.classList.add('animate__backInUp');
