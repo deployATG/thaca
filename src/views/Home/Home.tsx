@@ -8,7 +8,7 @@ import AppSvgIcon from "@/components/AppSvgIcon"
 import { ReactComponent as iconFish } from '@/assets/icons/fish.svg'
 import AppSvgIconWithRef from "@/components/AppSvgIcon"
 import ShowBling from "../components/ShowBling"
-import { Howl } from 'howler';
+import {Howl, Howler} from 'howler';
 import { ReactComponent as icLogo } from "@/assets/icons/logoAtgBlack.svg"
 import { gotoPage } from "@/utils/helpers/common"
 import 'animate.css';
@@ -34,12 +34,12 @@ const Home = (props: MenuLeftType) => {
   let start: number | undefined;
   const sound = new Howl({
     src: ['/image/icons/Water_sound_effect_1.mp3'],
-    html5: true,
-    volume: 0.1
+    html5: false,
+    volume: 0.1,
   })
   const soundMain = new Howl({
     src: ['/image/icons/lake_sounds_cut.mp3'],
-    html5: true,
+    html5: false,
     loop: true,
     autoplay: true,
     volume: 0.1,
@@ -55,9 +55,7 @@ const Home = (props: MenuLeftType) => {
   };
 
   const handleAnimationEnd = () => {
-    
     sound.play();
-    sound.volume(0.1)
     if (elementReftHands.current) {
       elementReftHands.current.classList.remove('animate__backOutDown')
       elementReftHands.current?.classList.add('animate__backInUp');
@@ -74,6 +72,7 @@ const Home = (props: MenuLeftType) => {
     timeoutRef.current = setTimeout(() => {
       setIsClickAnimationWave(false)
       sound.stop();
+      sound.volume(0)
     }, 1000);
   }
   const handleUpOpacity = () => {
@@ -94,7 +93,10 @@ const Home = (props: MenuLeftType) => {
     }, 2500)
   }
   const handleClick = () => {
+    soundMain.volume(0.1);
     handleUpOpacity()
+    console.log('sound', sound.volume());
+    console.log('soundMain', soundMain.volume());
     if (elemRef.current && isClickAnimation) {
       if (timeoutRef1.current) {
         clearTimeout(timeoutRef1.current);
@@ -158,7 +160,7 @@ const Home = (props: MenuLeftType) => {
             </div>
           </div>
         </div>}
-        <Button className={classes.Button} onClick={() => { opacityButton === 1 && setIsClickAnimation(true) }} style={{ opacity: opacityButton }}>
+        <Button className={classes.Button} onClick={() => { opacityButton === 1 && (setIsClickAnimation(true)) }} style={{ opacity: opacityButton }}>
           <AppSvgIcon component={iconFish} className={classes.iconFishButton} />
           <span className={classes.text}>Thả cá</span>
         </Button>
