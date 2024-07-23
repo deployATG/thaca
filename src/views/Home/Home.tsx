@@ -35,14 +35,14 @@ const Home = (props: MenuLeftType) => {
   const sound = new Howl({
     src: ['/image/icons/Water_sound_effect_1.mp3'],
     html5: false,
-    volume: 0.1,
+    volume: 0.7,
   })
   const soundMain = new Howl({
     src: ['/image/icons/lake_sounds_cut.mp3'],
     html5: false,
     loop: true,
     autoplay: true,
-    volume: 0.1,
+    volume: 0.7,
   })
 
   const debug = (timestamp: number) => {
@@ -93,7 +93,7 @@ const Home = (props: MenuLeftType) => {
     }, 2500)
   }
   const handleClick = () => {
-    soundMain.volume(0.1);
+    soundMain.volume(0.7);
     handleUpOpacity()
     console.log('sound', sound.volume());
     console.log('soundMain', soundMain.volume());

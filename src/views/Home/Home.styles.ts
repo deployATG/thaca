@@ -114,6 +114,8 @@ const useStyles = makeStyles({
       overflow: "hidden",
       position: "relative",
       backgroundColor: 'white',
+      display: 'flex',
+      justifyContent: 'center'
     },
     containerBody: {
       width: '100%',
@@ -433,8 +435,12 @@ const useStyles = makeStyles({
       height: 100,
       top: 0,
       zIndex: 10,
-      left: '50%',
-      cursor: 'pointer'
+      // left: '50%',
+      cursor: 'pointer',
+      // margin: 'auto',
+      // [theme.breakpoints.down('md')]: {
+      //   margin: 'auto'
+      // }
     }
   }
 })
