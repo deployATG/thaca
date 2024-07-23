@@ -199,6 +199,9 @@ const useStyles = makeStyles({
         height: 68
       },
     },
+    iconNotShowFish: {
+      display: 'none'
+    },
     content: {
       position: 'absolute',
       width: '40%',

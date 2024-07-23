@@ -30,6 +30,8 @@ const Home = (props: MenuLeftType) => {
   const timeoutRef1 = useRef<NodeJS.Timeout | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const elementReftHands = useRef<HTMLImageElement>(null);
+  const elementReftFish = useRef<HTMLDivElement>(null);
+  const [isShowFish, setIsShowFish] = useState(true)
 
   let start: number | undefined;
   const sound = new Howl({
@@ -64,15 +66,18 @@ const Home = (props: MenuLeftType) => {
     if (elemRef.current) {
       elemRef.current.classList.remove(classes.start)
       setIsClickAnimation(false);
+      // elementReftFish.current?.classList.add('animate__fadeInTopRight');
     }
 
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
     }
     timeoutRef.current = setTimeout(() => {
+      setIsShowFish(true);
       setIsClickAnimationWave(false)
+      elemRef.current?.classList.add('animate__fadeInTopRight');
       sound.stop();
-      sound.volume(0)
+      sound.volume(0);
     }, 1000);
   }
   const handleUpOpacity = () => {
@@ -93,10 +98,9 @@ const Home = (props: MenuLeftType) => {
     }, 2500)
   }
   const handleClick = () => {
+    setIsShowFish(false)
     soundMain.volume(0.7);
     handleUpOpacity()
-    console.log('sound', sound.volume());
-    console.log('soundMain', soundMain.volume());
     if (elemRef.current && isClickAnimation) {
       if (timeoutRef1.current) {
         clearTimeout(timeoutRef1.current);
@@ -107,7 +111,7 @@ const Home = (props: MenuLeftType) => {
       elementReftHands.current?.classList.add('animate__backOutDown');
       elemRef.current.classList.add(classes.start);
       window.requestAnimationFrame(debug);
-      elemRef.current.addEventListener('animationend', handleAnimationEnd)
+      elemRef.current.addEventListener('animationend', handleAnimationEnd);
     } else {
       console.error('elemRef.current is null');
     }
@@ -137,8 +141,8 @@ const Home = (props: MenuLeftType) => {
         <div className={classes.contentHands} >
           <div className={classes.content} >
             <img src="/image/icons/hands.png" alt="" className={cx(classes.hands, 'animate__animated')} ref={elementReftHands} />
-            <i ref={elemRef} className={isClickAnimation ? classes.iActivities : classes.i} >
-              <AppSvgIconWithRef component={iconFish} className={isClickAnimation ? classes.iconFishActivities : classes.iconFish} />
+            <i ref={elemRef} className={cx(isClickAnimation ? classes.iActivities : classes.i, 'animate__animated')}>
+              <AppSvgIconWithRef ref={elementReftFish} component={iconFish} className={cx(isClickAnimation ? classes.iconFishActivities : (isShowFish? classes.iconFish: classes.iconNotShowFish), 'animate__animated')} />
             </i>
           </div>
         </div>
