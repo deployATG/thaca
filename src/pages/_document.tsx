@@ -23,6 +23,7 @@ export default class MyDocument extends Document {
           <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"></link>
           <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"></link>
           <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta name='description' content='Phóng sinh online - Chỉ cần chiếc điện thoại hoặc máy tính hoặc máy tính bảng trên tay là bạn có thể phóng sinh cá mà chẳng cần phải tốn công đi mua cá mang ra bờ sông như trước.'></meta>
           <script
             dangerouslySetInnerHTML={{
               __html: `
